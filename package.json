@@ -1,0 +1,19 @@
+{
+  "name": "videotape",
+  "version": "1.0.0",
+  "description": "Project of the REST API Course with Javascript: Examples with real APIs",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CabosManuel/videotape.git"
+  },
+  "author": "@CabosManuel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CabosManuel/videotape/issues"
+  },
+  "homepage": "https://github.com/CabosManuel/videotape#readme"
+}
