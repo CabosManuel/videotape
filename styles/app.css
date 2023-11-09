@@ -25,17 +25,21 @@
 	--space-tiny: 4px;
 
 	--radius-medium: 32px;
+	--radius-small: 10px;
 	--radius-tiny: 5px;
 }
 
 html {
+	background-color: aqua;
 	font-size: 62.5%;
 }
 
 body {
+	width: 100%;
+	padding: var(--space-medium) var(--space-large);
 	font-family: 'Rubik', sans-serif;
 	font-size: var(--text-small);
-	background-color: var(--dark-blue);
+	background-color: var(--dark-light-blue);
 	color: var(--white);
 }
 
@@ -72,7 +76,19 @@ button {
 	cursor: pointer;
 }
 
+img {
+	width: 100%;
+}
 
+code {
+	color: #058c42;
+	font-weight: bold;
+}
+
+
+.hide {
+	display: none;
+}
 
 .title {
 	display: flex;
@@ -82,6 +98,14 @@ button {
 
 .slogan {
 	font-size: var(--text-tiny);
+	margin-bottom: var(--space-medium);
+}
+
+.searchbar {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
 }
 
 .subtitle {
@@ -93,20 +117,16 @@ button {
 .trending-movies {
 	display: flex;
 	align-items: center;
+	gap: var(--space-small);
+	overflow-x: scroll;
 }
 
 .trending-movie {
 	position: relative;
 	display: flex;
-
-}
-
-.watch-later {
-	position: absolute;
-	right: var(--space-small);
-	top: var(--space-small);
-	background-color: var(--dark-blue);
-	border-radius: var(--radius-medium);
+	min-width: 168px;
+	border-radius: var(--radius-tiny);
+	overflow: hidden;
 }
 
 .trending-position {
@@ -140,4 +160,30 @@ button {
 	color: var(--dark-blue);
 	background-color: var(--green);
 	border-radius: var(--radius-medium);
+}
+
+.watch-later {
+	position: absolute;
+	right: var(--space-small);
+	top: var(--space-small);
+	background-color: var(--dark-blue);
+	border-radius: var(--radius-medium);
+}
+
+.watch-later-movies {
+	display: grid;
+	grid-auto-columns: 168px;
+	grid-template-columns: 1fr 1fr;
+	gap: var(--space-small);
+	width: 100%;
+}
+
+.watch-later-movie {
+	border-radius: var(--radius-tiny);
+	overflow: hidden;
+}
+
+.credits {
+	font-size: var(--text-tiny);
+	margin: var(--space-small) 0;
 }
