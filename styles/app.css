@@ -116,14 +116,14 @@ code {
 	margin: var(--space-large) 0 var(--space-medium);
 }
 
-.trending-movies {
+.trending-movies, .suggested-movies {
 	display: flex;
 	align-items: center;
 	gap: var(--space-small);
 	overflow-x: scroll;
 }
 
-.trending-movie {
+.trending-movie, .suggested-movie {
 	position: relative;
 	display: flex;
 	min-width: 168px;
@@ -184,6 +184,48 @@ code {
 	position: relative;
 	border-radius: var(--radius-tiny);
 	overflow: hidden;
+}
+
+/* Movie */
+.movie-view {
+	width: 100%;
+	height: 100%;
+}
+
+.movie {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.movie-poster {
+	width: 70%;
+	margin: var(--space-x-large) 0 var(--space-medium);
+}
+
+.movie-title-rating {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-family: 'Dela Gothic One', sans-serif;
+}
+
+.movie-description {
+	font-size: var(--text-small);
+}
+
+.movie-categories {
+	display: flex;
+	justify-content: flex-end;
+
+	.category-list {
+		margin: var(--space-small) 0;
+	}
+}
+
+.suggested-movie {
+	justify-self: flex-start;
 }
 
 .credits {
