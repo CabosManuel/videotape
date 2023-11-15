@@ -173,6 +173,11 @@ code {
 	border-radius: var(--radius-medium);
 }
 
+.category > i {
+	color: var(--dark-light-blue);
+	margin-right: var(--space-tiny);
+}
+
 .watch-later {
 	position: absolute;
 	right: var(--space-small);
