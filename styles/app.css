@@ -17,6 +17,7 @@
 	--text-regular: 1.6rem;
 	--text-small: 1.4rem;
 	--text-tiny: 1.2rem;
+	--text-s-tiny: 1.0rem;
 
 	--space-x-large: 64px;
 	--space-large: 32px;
@@ -24,9 +25,14 @@
 	--space-small: 8px;
 	--space-tiny: 4px;
 
+	--radius-large: 60px;
 	--radius-medium: 32px;
 	--radius-small: 10px;
 	--radius-tiny: 5px;
+
+	--width-tablet: 80%;
+	--width-tablet: 80%;
+	--width-desktop: 80%;
 }
 
 html {
@@ -83,7 +89,7 @@ img {
 }
 
 code {
-	color: #058c42;
+	color: var(--green);
 	font-weight: bold;
 }
 
@@ -233,3 +239,69 @@ code {
 	font-size: var(--text-tiny);
 	margin: var(--space-small) 0;
 }
+
+/*  */
+@media (min-width: 481px) and (max-width: 767px) {
+
+	html {
+		background-color: var(--dark-blue-light);
+	}
+	
+	body {
+		width: 80%;
+		margin: auto;
+	}
+
+}
+
+/* ********* Tablet ********* */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+	html {
+		background-color: var(--dark-blue-light);
+	}
+
+	body {
+		width: var(--width-tablet);
+		margin: auto;
+	}
+
+	.trending-movie {
+		min-width: 132px;
+	}
+	.searchbar {
+		justify-content: flex-end;
+	}
+	.category-list {
+		flex-direction: column;
+		height: 140px;
+		justify-content: flex-start;
+	}
+
+	.category {
+		width: fit-content;
+		border-radius: var(--radius-large);
+	}
+
+	.grid-movies {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+/* ********* Desktop/TV ********* */
+/*
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+	h1 {
+		font-size: var(--text-x-large);
+	}
+
+	.searchbar {
+		justify-content: flex-end;
+	}
+	
+	.grid-movies {
+		grid-template-columns: repeat(5, 1fr);
+	}
+}
+*/
