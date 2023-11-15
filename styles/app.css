@@ -159,6 +159,7 @@ code {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
+	max-width: 640px;
 }
 
 .category {
@@ -286,12 +287,6 @@ code {
 		align-items: center;
 	}
 
-	.category-list {
-		flex-direction: column;
-		height: 120px;
-		justify-content: flex-start;
-	}
-
 	.grid-movies {
 		grid-template-columns: repeat(4, 1fr);
 	}
@@ -314,6 +309,10 @@ code {
 		font-size: var(--text-x-large);
 	}
 
+	.searchbar {
+		justify-content: flex-end;
+	}
+
 	.categories {
 		display: flex;
 		flex-direction: column;
@@ -322,8 +321,9 @@ code {
 
 	.category-list {
 		flex-direction: column;
-		height: 120px;
 		justify-content: flex-start;
+		width: 600px;
+		height: 120px;
 	}
 
 	.grid-movies {
