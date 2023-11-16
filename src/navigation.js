@@ -4,38 +4,46 @@ window.addEventListener('hashchange', navigator, false); // Cambio el hash # de 
 function navigator() {
 	console.log( { location });
 
-	// Si estamos en #home, ejecutar homePage()
-	if (location.hash.startsWith('#home')) {
-		homePage();
-	} else if (location.hash.startsWith('#search=')) {
-		searchPage();
-	} else if (location.hash.startsWith('#category=')) {
-		categoryPage();
-	} else if (location.hash.startsWith('#movie=')) {
-		moviePage();
-	} else { // Si no estamos en ningún hash, cargar homePage()
-		homePage();
+	// Si en la URL agrega #home, cargará home
+	if (location.hash.startsWith(HOME_HASH)) {
+		chargeHomeView();
+	} else if (location.hash.startsWith(CATEGORY_HASH)) {
+		chargerCategoryView();
+	} else if (location.hash.startsWith(SEARCH_HASH)) {
+		chargeSearchView();
+	} else if (location.hash.startsWith(MOVIE_HASH)) {
+		chargeMovieView();
+	} else { // Si no estamos en ningún hash, cargar home
+		chargeHomeView();
 	}
-	
+
 	location.hash
 }
+// Charge views ----------------------------------------------------------------
+function chargeHomeView() {
+	console.log('Home view');
 
-// En Home, ejecutar getTrendingMovies() y getCategories()
-function homePage() {
-	console.log('Home');
+	resetView(HOME_HASH);
 
 	getTrendingMovies();
 	getCategories();
 }
 
-function searchPage() {
-	console.log('Search');
+function chargerCategoryView() {
+	console.log('Category view');
+
+	resetView(CATEGORY_HASH);
 }
 
-function categoryPage() {
-	console.log('Category');
+function chargeSearchView() {
+	console.log('Search view');
+
+	resetView(SEARCH_HASH);
 }
 
-function moviePage() {
-	console.log('Movie');
+function chargeMovieView() {
+	console.log('Movie view');
+
+	resetView(MOVIE_HASH);
 }
+

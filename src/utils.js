@@ -1,3 +1,8 @@
+const HOME_HASH = '#home';
+const CATEGORY_HASH = '#category';
+const SEARCH_HASH = '#search';
+const MOVIE_HASH = '#movie';
+
 // JSDoc, anotaciones para no perder el autocompletado
 /**
  * @param id {string}
@@ -7,14 +12,54 @@ const qSelector = (selector) => document.querySelector(selector);
 
 function resetView(viewName) {
 	switch (viewName) {
-		case 'home':
+		case HOME_HASH:
 			trendingSection.classList.remove('hide');
-			
-			genericTitle.classList.add('hide');
-			searchForm.classList.remove('hide');
-
 			genericSection.classList.add('hide');
 			movieSection.classList.add('hide');
+
+			genericTitle.classList.add('hide');
+			arrowBtn.classList.remove('fa-solid');
+			arrowBtn.classList.add('hide');
+			genericTitleContainer.classList.add('hide');
+			searchForm.classList.remove('hide');
+			searchForm.classList.add('searchbar');
+
+			// Probablemente no son necesarios estos 2
+			// trendingMoviesList.classList.remove('hide');
+			// categoriesList.classList.remove('hide');
+			break;
+		case CATEGORY_HASH:
+			trendingSection.classList.add('hide');
+			genericSection.classList.remove('hide');
+			movieSection.classList.add('hide');
+
+			arrowBtn.classList.remove('hide');
+			arrowBtn.classList.add('fa-solid');
+			genericTitleContainer.classList.remove('hide');
+			searchForm.classList.add('hide');
+			searchForm.classList.remove('searchbar');
+			break;
+		case SEARCH_HASH:
+			trendingSection.classList.add('hide');
+			genericSection.classList.remove('hide');
+			movieSection.classList.add('hide');
+
+			arrowBtn.classList.remove('hide');
+			arrowBtn.classList.add('fa-solid');
+			genericTitleContainer.classList.remove('hide');
+			searchForm.classList.remove('hide');
+			searchForm.classList.add('searchbar');
+			break;
+		case MOVIE_HASH:
+			trendingSection.classList.add('hide');
+			genericSection.classList.add('hide');
+			movieSection.classList.remove('hide');
+
+			arrowBtn.classList.remove('hide');
+			arrowBtn.classList.add('fa-solid');
+			genericTitleContainer.classList.add('hide');
+			searchForm.classList.remove('hide');
+			searchForm.classList.add('searchbar');
 			break;
 	}
 }
