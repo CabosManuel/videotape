@@ -21,13 +21,13 @@
 <body>
 	
 	<div class="title">
-		<!-- TODO Create effect blur at the beginning and end of the title when -->
+		<!-- TODO HTML: Separated letters for blur -->
 		<h1>VIDEOTAPE</h1>
 		<span class="slogan">FROM REELS TO PIXELS</span>
 	</div>
 	
-	
-	<!-- TODO Fix styles search form -->
+	<!-- TODO HTML: Structure static separation between title and views or generic title -->
+
 	<div class="arrow-searchbar">
 		<i id="arrow-left" class="hide fa-arrow-left fa-xl"></i>
 		<form id="search-form" class="searchbar">
@@ -37,17 +37,17 @@
 	</div>
 
 	<div class="generic-title hide">
-		<h2 class="subtitle">ANIMATION</h2>
+		<h2 class="subtitle"><i class="fa-solid fa-film"></i>ANIMATION</h2>
 		<!-- <h2 class="subtitle hide">RESULTS FOR: <span>YOUR NAME</span></h2> -->
 	</div>
 
+	<!-- Home view -->
 	<section id="home-view" class="">
 		<h2 class="subtitle">
 			<i class="fa-solid fa-arrow-trend-up"></i>
 			TRENDING
 		</h2>
 
-		<!-- TODO Add styles videotape container -->
 		<div class="trending-movies">
 			<!--
 			<div class="trending-movie">
@@ -96,6 +96,7 @@
 		</div>
 	</section>
 
+	<!-- Category/Search view view -->
 	<section id="generic-grid-view" class="hide">
 		<div class="grid-movies">
 			<div class="grid-movie">
@@ -117,6 +118,7 @@
 		</div>
 	</section>
 
+	<!-- Movie view -->
 	<section id="movie-view" class="hide">
 		<div class="movie">
 			<!-- <img src="https://www.themoviedb.org/t/p/w220_and_h330_bestv2/q719jXXEzOoYaps6babgKnONONX.jpg" alt=""> -->
@@ -139,13 +141,11 @@
 					<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim adipisci quisquam iusto itaque voluptatibus, magni vel. Adipisci, quidem aliquid. Quisquam corporis facere ut eligendi magnam nostrum blanditiis animi cumque tempore?</p>
 				</div>
 
-				<div class="movie-categories">
-					<ul class="category-list">
-						<li class="category">ANIMATION</li>
-						<li class="category">ROMANCE</li>
-						<li class="category">DRAMA</li>
-					</ul>
-				</div>
+				<ul class="movie-categories">
+					<li class="category">ANIMATION</li>
+					<li class="category">ROMANCE</li>
+					<li class="category">DRAMA</li>
+				</ul>
 
 			</div>
 
@@ -168,15 +168,17 @@
 		</div>
 	</section>
 
-	<!-- TODO Convert to footer -->
-	<p class="credits">
-		Developed by
-		<code>
-			<a href="https://github.com/CabosManuel" target="_blank" rel="noopener noreferrer">
-				@CabosManuel
-			</a>
-		</code>
-	</p>
+	
+	<footer>
+		<p class="credits">
+			Developed by
+			<code>
+				<a href="https://github.com/CabosManuel" target="_blank" rel="noopener noreferrer">
+					@CabosManuel
+				</a>
+			</code>
+		</p>
+	</footer>
 
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 	<script src="./src/secrets.js"></script>
