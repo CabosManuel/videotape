@@ -1,10 +1,17 @@
-const URL = 'https://api.themoviedb.org/3/';
 const URL_IMG = 'https://image.tmdb.org/t/p/w300';
 
-async function getTrendingMovies() {
-	const response = await fetch(`${URL}/trending/movie/week?api_key=${API_KEY}`); // &language=en-US
-	const data = await response.json();
+const axiosRequest = axios.create({
+	baseURL: 'https://api.themoviedb.org/3/',
+	headers: {
+		'Content-Type': 'application/json;charset=utf-8',
+  },
+	params: {
+		'api_key': API_KEY,
+	},
+});
 
+async function getTrendingMovies() {
+	const { data } = await axiosRequest('trending/movie/week');
 	const movies = data.results;
 	console.log(movies);
 
@@ -24,9 +31,7 @@ async function getTrendingMovies() {
 }
 
 async function getCategories() {
-	const response = await fetch(`${URL}/genre/movie/list?api_key=${API_KEY}`);
-	const data = await response.json();
-
+	const { data } = await axiosRequest('genre/movie/list');
 	const categories = data.genres;
 	console.log(categories);
 
