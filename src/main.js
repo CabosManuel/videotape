@@ -25,6 +25,9 @@ async function getTrendingMovies() {
 		movieImg.setAttribute('alt', movie.title);
 		movieImg.setAttribute('src', `${URL_IMG}${movie.poster_path}`);
 
+		// TODO Add btn watch later
+		// TODO Add svg with ranking position in trending
+
 		trendingMovieDiv.appendChild(movieImg);
 		trendingMoviesContainer.appendChild(trendingMovieDiv);
 	});

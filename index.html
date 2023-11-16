@@ -21,19 +21,28 @@
 <body>
 	
 	<div class="title">
+		<!-- TODO Create effect blur at the beginning and end of the title when -->
 		<h1>VIDEOTAPE</h1>
 		<span class="slogan">FROM REELS TO PIXELS</span>
 	</div>
+	<!-- TODO Fix styles search form -->
 	<form id="search-form" class="searchbar">
 		<input type="text" class="searchbox">
 		<button>Buscar</button>
 	</form>
+
+	<div class="generic-title">
+		<h2 class="subtitle hide">ANIMATION</h2>
+		<!-- <h2 class="subtitle hide">RESULTS FOR: <span>YOUR NAME</span></h2> -->
+	</div>
 
 	<section id="home-view" class="">
 		<h2 class="subtitle">
 			<i class="fa-solid fa-arrow-trend-up"></i>
 			TRENDING
 		</h2>
+
+		<!-- TODO Add styles videotape container -->
 		<div class="trending-movies">
 			<!--
 			<div class="trending-movie">
@@ -82,30 +91,7 @@
 		</div>
 	</section>
 
-	<section id="category-view" class="hide">
-		<h2 id="category-title" class="subtitle">ANIMATION</h2>
-		<div class="grid-movies">
-			<div class="grid-movie">
-				<button class="watch-later">watch later</button>
-				<img src="https://www.themoviedb.org/t/p/w220_and_h330_bestv2/q719jXXEzOoYaps6babgKnONONX.jpg" alt="">
-			</div>
-			<div class="grid-movie">
-				<button class="watch-later">watch later</button>
-				<img src="img/movie-poster-backgournd.png" alt="">
-			</div>
-			<div class="grid-movie">
-				<button class="watch-later">watch later</button>
-				<img src="img/movie-poster-backgournd.png" alt="">
-			</div>
-			<div class="grid-movie">
-				<button class="watch-later">watch later</button>
-				<img src="img/movie-poster-backgournd.png" alt="">
-			</div>
-		</div>
-	</section>
-	
-	<section id="search-view" class="hide">
-		<h2 id="search-title" class="subtitle">RESULTS FOR: <span>YOUR NAME</span></h2>
+	<section id="generic-grid-view" class="hide">
 		<div class="grid-movies">
 			<div class="grid-movie">
 				<button class="watch-later">watch later</button>
@@ -137,7 +123,7 @@
 			<div class="movie-info">
 
 				<div class="movie-title-rating">
-					<h2>Your Name.</h2>
+					<h2 id="movie-info-title">Your Name.</h2>
 					<div class="movie-rating">
 						<span>8.5</span>
 						<i class="fa-solid fa-star"></i>
