@@ -111,11 +111,32 @@ code {
 	margin-bottom: var(--space-medium);
 }
 
+.arrow-searchbar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .searchbar {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
+	width: 100%;
+}
+
+.generic-title {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.generic-title > .subtitle {
+	margin-top: var(--space-medium);
+}
+
+#arrow-left {
+	color: var(--white);
 }
 
 .subtitle {
