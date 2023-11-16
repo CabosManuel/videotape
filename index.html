@@ -24,16 +24,16 @@
 		<h1>VIDEOTAPE</h1>
 		<span class="slogan">FROM REELS TO PIXELS</span>
 	</div>
-	<div class="searchbar">
+	<form id="search-form" class="searchbar">
 		<input type="text" class="searchbox">
 		<button>Buscar</button>
-	</div>
+	</form>
 
 	<section id="home-view" class="">
-		<div class="subtitle">
+		<h2 class="subtitle">
 			<i class="fa-solid fa-arrow-trend-up"></i>
-			<h2>TRENDING</h2>
-		</div>
+			TRENDING
+		</h2>
 		<div class="trending-movies">
 			<!--
 			<div class="trending-movie">
@@ -44,17 +44,15 @@
 			-->
 		</div>
 		<div class="categories">
-			<div class="subtitle">
-				<h2>CATEGORIES</h2>
-			</div>
-			<ul class="category-list">
+			<h2 class="subtitle">CATEGORIES</h2>
+			<ul class="categories-list">
 				<!-- <li class="category"><i class="fa-solid fa-explosion"></i>ACTION</li> -->
 			</ul>
 		</div>
-		<div class="whatch-later">
-			<div class="subtitle">
-				<h2>WATCH LATER</h2>
-			</div>
+		<div class="watch-later-movies">
+			<h2 class="subtitle">
+				WATCH LATER
+			</h2>
 			<div class="grid-movies">
 				<div class="grid-movie">
 					<img src="https://www.themoviedb.org/t/p/w220_and_h330_bestv2/q719jXXEzOoYaps6babgKnONONX.jpg" alt="">
@@ -85,9 +83,7 @@
 	</section>
 
 	<section id="category-view" class="hide">
-		<div id="category-subtitle" class="subtitle">
-			<h2>ANIMATION</h2>
-		</div>
+		<h2 id="category-title" class="subtitle">ANIMATION</h2>
 		<div class="grid-movies">
 			<div class="grid-movie">
 				<button class="watch-later">watch later</button>
@@ -109,9 +105,7 @@
 	</section>
 	
 	<section id="search-view" class="hide">
-		<div id="search-subtitle" class="subtitle">
-			<h2>RESULTS FOR: <span>YOUR NAME</span></h2>
-		</div>
+		<h2 id="search-title" class="subtitle">RESULTS FOR: <span>YOUR NAME</span></h2>
 		<div class="grid-movies">
 			<div class="grid-movie">
 				<button class="watch-later">watch later</button>
@@ -166,10 +160,7 @@
 
 		</div>
 
-		<div class="subtitle">
-			<i class="fa-solid fa-film"></i>
-			<h2>SUGGESTIONS</h2>
-		</div>
+		<h2 class="subtitle"><i class="fa-solid fa-film"></i>SUGGESTIONS</h2>
 		<div class="suggested-movies">
 			<div class="suggested-movie">
 				<button class="watch-later">watch later</button>

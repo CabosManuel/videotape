@@ -155,7 +155,7 @@ code {
 	color: var(--dark-blue);
 }
 
-.category-list {
+.categories-list {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
@@ -233,7 +233,7 @@ code {
 	display: flex;
 	justify-content: flex-end;
 
-	.category-list {
+	.categories-list {
 		margin: var(--space-small) 0;
 	}
 }
@@ -324,7 +324,7 @@ code {
 		align-items: center;
 	}
 
-	.category-list {
+	.categories-list {
 		flex-direction: column;
 		justify-content: flex-start;
 		width: 600px;
@@ -362,7 +362,7 @@ code {
 		align-items: center;
 	}
 
-	.category-list {
+	.categories-list {
 		flex-direction: column;
 		width: 640px;
 		height: 120px;

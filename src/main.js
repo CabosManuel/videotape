@@ -36,7 +36,7 @@ async function getCategories() {
 	console.log(categories);
 
 	categories.forEach(category => {
-		const categoriesContainer = document.querySelector('#home-view .category-list');
+		const categoriesContainer = document.querySelector('#home-view .categories-list');
 		const categoryLi = document.createElement('li');
 
 		categoryLi.classList.add('category');
