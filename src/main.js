@@ -53,9 +53,6 @@ async function getCategories() {
 	});
 }
 
-getTrendingMovies();
-getCategories();
-
 // Utilities ----------------------------------------------------------------
 function getFaIconByCategoryId(categoryId) {
 	let faIcon = 'fa-film';
