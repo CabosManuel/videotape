@@ -1,7 +1,6 @@
-const qSelector = (selector) => document.querySelector(selector);
-
 // Sections
-const headerSection = '';
+// TODO Group header section?
+// const headerSection = '';
 const trendingSection = qSelector('#home-view');
 const genericSection = qSelector('#generic-grid-view');
 const movieSection = qSelector('#movie-view');
@@ -16,8 +15,7 @@ const movieCategoriesList = qSelector('#movie-view .movie .movie-info .movie-cat
 const suggestedMoviesList = qSelector('#movie-view .suggested-movies');
 
 // Elements
-// TODO Crear un header arrow
-// const arrowBtn = qSelector('.header-arrow');
+const arrowBtn = qSelector('#arrow-left');
 const genericTitle = qSelector('.generic-title h2');
 
 const searchFormInput = qSelector('#search-form input');
