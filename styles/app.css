@@ -7,6 +7,7 @@
 
 :root {
 	--green: #0FEB74;
+	--blue: #00255C;
 	--dark-blue: #000814;
 	--dark-light-blue: #000E24;
 	--white: white;
@@ -70,6 +71,11 @@ h2 {
 	font-weight: 400;
 }
 
+input {
+	color: var(--white);
+	font-family: 'Rubik', sans-serif;
+}
+
 i {
 	color: var(--green);
 	margin-right: var(--space-small);
@@ -129,13 +135,48 @@ code {
 	margin-right: auto;
 }
 
-/* TODO CSS: Searchbar, radius and button */
 .searchbar {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
 	width: 100%;
+}
+
+.search-container {
+	display: flex;
+	width: 288px;
+	padding: var(--space-tiny) var(--space-small);
+	padding-right: var(--space-tiny);
+	border: 1px solid var(--blue);
+	border-radius: var(--radius-medium);
+}
+
+.search-textbox {
+	width: 100%;
+	min-width: 30px;
+	margin: 0 var(--space-small);
+	background-color: transparent;
+	border-style: none;
+	border-color: transparent;
+	outline: none;
+	resize: vertical;
+}
+
+#search-btn {
+	position: relative;
+	display: flex;
+	min-width: 24px;
+	min-height: 24px;
+	border-radius: 30px;
+}
+
+.fa-magnifying-glass {
+	position: absolute;
+	top: 6px;
+	left: 5px;
+	color: var(--dark-blue);
+	cursor: pointer;
 }
 
 .generic-title > .subtitle {
