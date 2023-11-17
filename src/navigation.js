@@ -1,3 +1,6 @@
+searchFormBtn.addEventListener('click', () => { location.hash = SEARCH_HASH; });
+arrowBtn.addEventListener('click', () => { location.hash = HOME_HASH; });
+
 window.addEventListener('DOMContentLoaded', navigator, false); // DOM listo
 window.addEventListener('hashchange', navigator, false); // Cambio el hash # de la URL
 
