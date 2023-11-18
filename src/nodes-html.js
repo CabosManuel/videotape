@@ -6,7 +6,7 @@ const movieSection = qSelector('#movie-view');
 // List & Containers
 const searchForm = qSelector('#search-form');
 const trendingMoviesList = qSelector('.trending-movies');
-const categoriesList = qSelector('.category-list');
+const categoriesList = qSelector('.categories-list');
 const watchLaterList = qSelector('.watch-later-movies .grid-movies');
 const genericGridMoviesList = qSelector('#generic-grid-view .grid-movies');
 const movieCategoriesList = qSelector('#movie-view .movie .movie-info .movie-categories');

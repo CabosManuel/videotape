@@ -10,8 +10,8 @@ const MOVIE_HASH = '#movie';
  */
 const qSelector = (selector) => document.querySelector(selector);
 
-function resetView(viewName) {
-	switch (viewName) {
+function resetView(hash) {
+	switch (hash) {
 		case HOME_HASH:
 			trendingSection.classList.remove('hide');
 			genericSection.classList.add('hide');
@@ -64,7 +64,7 @@ function resetView(viewName) {
 	}
 }
 
-function getFaIconByCategoryId(categoryId) {
+function getFaIconByCategoryById(categoryId) {
 	let faIcon = 'fa-film';
 
 	switch (categoryId) {

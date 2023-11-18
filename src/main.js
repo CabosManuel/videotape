@@ -15,9 +15,10 @@ async function getTrendingMovies() {
 	const movies = data.results;
 	console.log(movies);
 
-	movies.forEach(movie => {
-		// const trendingMoviesList = document.querySelector('#home-view .trending-movies');
+	// Limpiar trending-movies antes de agregarlas
+	trendingMoviesList.innerHTML = '';
 
+	movies.forEach(movie => {
 		const trendingMovieDiv = document.createElement('div');
 		trendingMovieDiv.classList.add('trending-movie');
 
@@ -38,20 +39,21 @@ async function getCategories() {
 	const categories = data.genres;
 	console.log(categories);
 
-	categories.forEach(category => {
-		const categoriesContainer = document.querySelector('#home-view .categories-list');
-		const categoryLi = document.createElement('li');
+	// Limpiar categories-list antes de agregarlas
+	categoriesList.innerHTML = "";
 
+	categories.forEach(category => {
+		const categoryLi = document.createElement('li');
 		categoryLi.classList.add('category');
 		categoryLi.setAttribute('id', category.id);
+
 		const categoryText = document.createTextNode(category.name.toUpperCase());
 		const categoryIcon = document.createElement('i');
 		categoryIcon.classList.add('fa-solid');
-		categoryIcon.classList.add(getFaIconByCategoryId(category.id));
+		categoryIcon.classList.add(getFaIconByCategoryById(category.id));
 
 		categoryLi.appendChild(categoryIcon);
 		categoryLi.appendChild(categoryText);
-		categoriesContainer.appendChild(categoryLi);
-
+		categoriesList.appendChild(categoryLi);
 	});
 }
