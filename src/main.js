@@ -63,8 +63,37 @@ async function getCategories() {
 	});
 }
 
-async function getMoviesByCategoryId(categoryId) {
-	const { data } = await axiosRequest('discover/movie');
+async function getMoviesByCategory(category) {
+	const { data } = await axiosRequest('discover/movie', {
+		params: { with_genres: category.id }
+	});
 
-	// TODO todo lo demás xD
+	const movies = data.results;
+
+	// Limpiar grid-movies
+	genericGridMoviesList.innerHTML = '';
+
+	// Modificar subtitulo
+	genericSubtitle.textContent = decodeURI(category.name).toUpperCase();
+	genericSubtitle.classList.add('subtitle');
+	// Agregar ícono al subtitulo
+	const genericTitleIcon = document.createElement('i');
+	genericTitleIcon.classList.add('fa-solid');
+	genericTitleIcon.classList.add(getFaIconByCategoryById(category.id));
+	genericSubtitle.prepend(genericTitleIcon);
+
+	// Agregar películas al grid
+	movies.forEach(movie => {
+		const movieDiv = document.createElement('div');
+		movieDiv.classList.add('grid-movie');
+
+		const movieImg = document.createElement('img');
+		movieImg.setAttribute('alt', movie.title);
+		movieImg.setAttribute('src', `${URL_IMG}${movie.poster_path}`);
+
+		// TODO JS: Add btn watch later (category view)
+
+		movieDiv.appendChild(movieImg);
+		genericGridMoviesList.appendChild(movieDiv);
+	});
 }

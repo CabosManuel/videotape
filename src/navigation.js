@@ -38,8 +38,12 @@ function chargerCategoryView() {
 
 	resetView(CATEGORY_HASH);
 
-	categoryId='';
-	getMoviesByCategoryId();
+	const categoryIdName = location.hash.split('=')[1];
+	const category = {
+		id: categoryIdName.split('-')[0],
+		name: categoryIdName.split('-')[1]
+	};
+	getMoviesByCategory(category);
 }
 
 function chargeSearchView() {

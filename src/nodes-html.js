@@ -15,7 +15,7 @@ const genericTitleContainer = qSelector('.generic-title');
 
 // Elements
 const arrowBtn = qSelector('#arrow-left');
-const genericTitle = qSelector('.generic-title h2');
+const genericSubtitle = qSelector('.generic-title h2');
 
 const searchFormInput = qSelector('#search-form input');
 const searchFormBtn = qSelector('#search-form button');

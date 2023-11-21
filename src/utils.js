@@ -17,7 +17,7 @@ function resetView(hash) {
 			genericSection.classList.add('hide');
 			movieSection.classList.add('hide');
 
-			genericTitle.classList.add('hide');
+			genericSubtitle.classList.add('hide');
 			arrowBtn.classList.remove('fa-solid');
 			arrowBtn.classList.add('hide');
 			genericTitleContainer.classList.add('hide');
@@ -66,6 +66,10 @@ function resetView(hash) {
 
 function getFaIconByCategoryById(categoryId) {
 	let faIcon = 'fa-film';
+
+	if (typeof categoryId === 'string') {
+		categoryId = parseInt(categoryId, 10);
+	}
 
 	switch (categoryId) {
 		case 28: faIcon = 'fa-explosion'; break; // Action
