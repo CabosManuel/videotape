@@ -10,6 +10,9 @@ const axiosRequest = axios.create({
 	},
 });
 
+
+// TODO JS: Abstraer funciones para crear movies y categories?
+
 async function getTrendingMovies() {
 	const { data } = await axiosRequest('trending/movie/week');
 	const movies = data.results;

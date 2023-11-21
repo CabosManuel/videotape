@@ -11,9 +11,10 @@ const watchLaterList = qSelector('.watch-later-movies .grid-movies');
 const genericGridMoviesList = qSelector('#generic-grid-view .grid-movies');
 const movieCategoriesList = qSelector('#movie-view .movie .movie-info .movie-categories');
 const suggestedMoviesList = qSelector('#movie-view .suggested-movies');
-const genericTitleContainer = qSelector('.generic-title');
+const genericSubtitleContainer = qSelector('.generic-title');
 
 // Elements
+const titleVideotape = qSelector('.title h1')
 const arrowBtn = qSelector('#arrow-left');
 const genericSubtitle = qSelector('.generic-title h2');
 

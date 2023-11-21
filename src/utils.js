@@ -20,7 +20,7 @@ function resetView(hash) {
 			genericSubtitle.classList.add('hide');
 			arrowBtn.classList.remove('fa-solid');
 			arrowBtn.classList.add('hide');
-			genericTitleContainer.classList.add('hide');
+			genericSubtitleContainer.classList.add('hide');
 			searchForm.classList.remove('hide');
 			searchForm.classList.add('searchbar');
 
@@ -35,7 +35,7 @@ function resetView(hash) {
 
 			arrowBtn.classList.remove('hide');
 			arrowBtn.classList.add('fa-solid');
-			genericTitleContainer.classList.remove('hide');
+			genericSubtitleContainer.classList.remove('hide');
 			searchForm.classList.add('hide');
 			searchForm.classList.remove('searchbar');
 			break;
@@ -46,7 +46,7 @@ function resetView(hash) {
 
 			arrowBtn.classList.remove('hide');
 			arrowBtn.classList.add('fa-solid');
-			genericTitleContainer.classList.remove('hide');
+			genericSubtitleContainer.classList.remove('hide');
 			searchForm.classList.remove('hide');
 			searchForm.classList.add('searchbar');
 			break;
@@ -57,7 +57,7 @@ function resetView(hash) {
 
 			arrowBtn.classList.remove('hide');
 			arrowBtn.classList.add('fa-solid');
-			genericTitleContainer.classList.add('hide');
+			genericSubtitleContainer.classList.add('hide');
 			searchForm.classList.remove('hide');
 			searchForm.classList.add('searchbar');
 			break;
