@@ -22,6 +22,7 @@ function navigator() {
 
 	location.hash
 }
+
 // Charge views ----------------------------------------------------------------
 function chargeHomeView() {
 	console.log('Home view');
@@ -36,6 +37,9 @@ function chargerCategoryView() {
 	console.log('Category view');
 
 	resetView(CATEGORY_HASH);
+
+	categoryId='';
+	getMoviesByCategoryId();
 }
 
 function chargeSearchView() {

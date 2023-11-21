@@ -54,6 +54,17 @@ async function getCategories() {
 
 		categoryLi.appendChild(categoryIcon);
 		categoryLi.appendChild(categoryText);
+
+		categoryLi.addEventListener('click', () => {
+			location.hash = `#category=${category.id}-${category.name.toLowerCase()}`;
+		});
+
 		categoriesList.appendChild(categoryLi);
 	});
+}
+
+async function getMoviesByCategoryId(categoryId) {
+	const { data } = await axiosRequest('discover/movie');
+
+	// TODO todo lo demás xD
 }

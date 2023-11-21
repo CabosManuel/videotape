@@ -238,6 +238,8 @@ code {
 	color: var(--dark-blue);
 	background-color: var(--green);
 	border-radius: var(--radius-medium);
+	cursor: pointer;
+	user-select: none;
 }
 
 .category > i {
