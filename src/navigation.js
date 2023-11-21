@@ -21,7 +21,8 @@ function navigator() {
 		chargeHomeView();
 	}
 
-	location.hash
+	// Fix scroll position
+	window.scrollTo(0, 0);
 }
 
 // Charge views ----------------------------------------------------------------

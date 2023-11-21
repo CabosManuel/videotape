@@ -206,6 +206,7 @@ code {
 	overflow-x: scroll;
 }
 
+/* TODO CSS: (1/2) Adjust height, fit and bottom rounded movie image */
 .trending-movie, .suggested-movie {
 	position: relative;
 	display: flex;
@@ -263,6 +264,7 @@ code {
 	border-radius: var(--radius-medium);
 }
 
+/* TODO CSS: (2/2) Adjust height, fit and bottom rounded movie image */
 .grid-movies {
 	display: grid;
 	grid-auto-columns: 168px;
