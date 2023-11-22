@@ -71,6 +71,10 @@ h2 {
 	font-weight: 400;
 }
 
+form {
+	cursor: default;
+}
+
 input {
 	color: var(--white);
 	font-family: 'Rubik', sans-serif;
