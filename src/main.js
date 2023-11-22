@@ -83,6 +83,7 @@ function createGridMovies(movies) {
 }
 
 async function getMoviesByCategory(category) {
+	// FIX JS: Validate null movies or empty posters
 	const { data } = await axiosRequest('discover/movie', {
 		params: { with_genres: category.id }
 	});

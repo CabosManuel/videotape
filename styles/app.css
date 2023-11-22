@@ -218,6 +218,7 @@ code {
 	min-width: 168px;
 	border-radius: var(--radius-tiny);
 	overflow: hidden;
+	cursor: pointer;
 }
 
 .trending-position {
@@ -282,6 +283,7 @@ code {
 	position: relative;
 	border-radius: var(--radius-tiny);
 	overflow: hidden;
+	cursor: pointer;
 }
 
 /* Movie */
