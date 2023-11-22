@@ -1,18 +1,21 @@
 titleVideotape.addEventListener('click', () => { location.hash = HOME_HASH; });
 
 arrowBtn.addEventListener('click', () => {
-	// FIX JS: History go back duplicated
-	// Cuando entro a categoría o busco algo, al cambiar el location
-	// parece que lo hace 2 veces y eso se queda guardado en el history
-	// por eso tengo que regresar -2
-	// * Adicionalmente, cuando uso el botón de retroceder del navegador, también pasa lo mismo
-	history.go(-2);
+	history.back();
 });
 
-searchFormBtn.addEventListener('click', () => {
+searchFormBtn.addEventListener('click', (e) => {
 	if (searchFormInput.value.length > 0) {
 		location.hash = `${SEARCH_HASH}=${searchFormInput.value}`;
 	}
+
+	e.preventDefault(); // Fix para que funcione correctamente el history.back()
+
+	/* El problema que pasaba antes del fix:
+
+	Cuando entro a categoría o busco algo, al cambiar el location parece que lo hace 
+	2 veces y eso se queda guardado en el history por eso tengo que regresar -2
+	(Adicionalmente, cuando uso el botón de retroceder del navegador, también pasa lo mismo) */
 });
 
 window.addEventListener('DOMContentLoaded', navigator, false); // DOM listo
