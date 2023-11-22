@@ -66,26 +66,7 @@ async function getCategories() {
 	});
 }
 
-async function getMoviesByCategory(category) {
-	const { data } = await axiosRequest('discover/movie', {
-		params: { with_genres: category.id }
-	});
-
-	const movies = data.results;
-
-	// Limpiar grid-movies
-	genericGridMoviesList.innerHTML = '';
-
-	// Modificar subtitulo
-	genericSubtitle.textContent = decodeURI(category.name).toUpperCase();
-	genericSubtitle.classList.add('subtitle');
-	// Agregar ícono al subtitulo
-	const genericTitleIcon = document.createElement('i');
-	genericTitleIcon.classList.add('fa-solid');
-	genericTitleIcon.classList.add(getFaIconByCategoryById(category.id));
-	genericSubtitle.prepend(genericTitleIcon);
-
-	// Agregar películas al grid
+function createGridMovies(movies) {
 	movies.forEach(movie => {
 		const movieDiv = document.createElement('div');
 		movieDiv.classList.add('grid-movie');
@@ -99,4 +80,44 @@ async function getMoviesByCategory(category) {
 		movieDiv.appendChild(movieImg);
 		genericGridMoviesList.appendChild(movieDiv);
 	});
+}
+
+async function getMoviesByCategory(category) {
+	const { data } = await axiosRequest('discover/movie', {
+		params: { with_genres: category.id }
+	});
+
+	const movies = data.results;
+
+	// Limpiar grid-movies
+	genericGridMoviesList.innerHTML = '';
+
+	// Modificar subtitulo
+	genericSubtitle.textContent = category.name.toUpperCase();
+	genericSubtitle.classList.add('subtitle');
+	// Agregar ícono al subtitulo
+	const genericTitleIcon = document.createElement('i');
+	genericTitleIcon.classList.add('fa-solid');
+	genericTitleIcon.classList.add(getFaIconByCategoryById(category.id));
+	genericSubtitle.prepend(genericTitleIcon);
+
+	// Agregar películas al grid
+	createGridMovies(movies);
+}
+
+async function getMoviesBySearchQuery(searchQuery) {
+	const { data } = await axiosRequest('search/movie', {
+		params: { query: searchQuery }
+	});
+
+	const movies = data.results;
+
+	// Limpiar grid-movies
+	genericGridMoviesList.innerHTML = '';
+
+	// Modificar subtitulo
+	genericSubtitle.textContent = `RESULTS FOR: ${searchQuery.toUpperCase()}`;
+	genericSubtitle.classList.add('subtitle');
+
+	createGridMovies(movies);
 }

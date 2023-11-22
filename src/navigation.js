@@ -1,6 +1,19 @@
 titleVideotape.addEventListener('click', () => { location.hash = HOME_HASH; });
-searchFormBtn.addEventListener('click', () => { location.hash = SEARCH_HASH; });
-arrowBtn.addEventListener('click', () => { location.hash = HOME_HASH; });
+
+arrowBtn.addEventListener('click', () => {
+	// FIX JS: History go back duplicated
+	// Cuando entro a categoría o busco algo, al cambiar el location
+	// parece que lo hace 2 veces y eso se queda guardado en el history
+	// por eso tengo que regresar -2
+	// * Adicionalmente, cuando uso el botón de retroceder del navegador, también pasa lo mismo
+	history.go(-2);
+});
+
+searchFormBtn.addEventListener('click', () => {
+	if (searchFormInput.value.length > 0) {
+		location.hash = `${SEARCH_HASH}=${searchFormInput.value}`;
+	}
+});
 
 window.addEventListener('DOMContentLoaded', navigator, false); // DOM listo
 window.addEventListener('hashchange', navigator, false); // Cambio el hash # de la URL
@@ -10,23 +23,23 @@ function navigator() {
 
 	// Si en la URL agrega #home, cargará home
 	if (location.hash.startsWith(HOME_HASH)) {
-		chargeHomeView();
+		loadHomeView();
 	} else if (location.hash.startsWith(CATEGORY_HASH)) {
-		chargerCategoryView();
+		loadCategoryView();
 	} else if (location.hash.startsWith(SEARCH_HASH)) {
-		chargeSearchView();
+		loadSearchView();
 	} else if (location.hash.startsWith(MOVIE_HASH)) {
-		chargeMovieView();
+		loadMovieView();
 	} else { // Si no estamos en ningún hash, cargar home
-		chargeHomeView();
+		loadHomeView();
 	}
 
 	// Fix scroll position
 	window.scrollTo(0, 0);
 }
 
-// Charge views ----------------------------------------------------------------
-function chargeHomeView() {
+// Load views ----------------------------------------------------------------
+function loadHomeView() {
 	console.log('Home view');
 
 	resetView(HOME_HASH);
@@ -35,12 +48,13 @@ function chargeHomeView() {
 	getCategories();
 }
 
-function chargerCategoryView() {
+function loadCategoryView() {
 	console.log('Category view');
 
 	resetView(CATEGORY_HASH);
 
-	const categoryIdName = location.hash.split('=')[1];
+	// Capturar categoría del hash y mostrar sus películas
+	const categoryIdName = decodeURI(location.hash.split('=')[1]);
 	const category = {
 		id: categoryIdName.split('-')[0],
 		name: categoryIdName.split('-')[1]
@@ -48,13 +62,17 @@ function chargerCategoryView() {
 	getMoviesByCategory(category);
 }
 
-function chargeSearchView() {
+function loadSearchView() {
 	console.log('Search view');
 
 	resetView(SEARCH_HASH);
+
+	// Capturar categoría del hash y mostrar sus películas
+	const searchQuery = decodeURI(location.hash.split('=')[1]);
+	getMoviesBySearchQuery(searchQuery);
 }
 
-function chargeMovieView() {
+function loadMovieView() {
 	console.log('Movie view');
 
 	resetView(MOVIE_HASH);
