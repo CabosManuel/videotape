@@ -143,7 +143,7 @@ async function getMovieById(movieId) {
 	movieInfoPoster.setAttribute('src', `${URL_IMG}${movie.poster_path}`);
 
 	movieInfoTitle.textContent = movie.title;
-	movieInfoRating.textContent = movie.vote_average.toFixed(2);
+	movieInfoRating.textContent = movie.vote_average.toFixed(1);
 	movieInfoDescription.textContent = movie.overview;
 
 	movieInfoCategoriesList.innerHTML = '';
