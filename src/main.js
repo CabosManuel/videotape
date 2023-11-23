@@ -25,6 +25,10 @@ async function getTrendingMovies() {
 		const trendingMovieDiv = document.createElement('div');
 		trendingMovieDiv.classList.add('trending-movie');
 
+		trendingMovieDiv.addEventListener('click', () => {
+			location.hash = `${MOVIE_HASH}=${movie.id}`;
+		});
+
 		const movieImg = document.createElement('img');
 		movieImg.setAttribute('alt', movie.title);
 		movieImg.setAttribute('src', `${URL_IMG}${movie.poster_path}`);
@@ -37,14 +41,7 @@ async function getTrendingMovies() {
 	});
 }
 
-async function getCategories() {
-	const { data } = await axiosRequest('genre/movie/list');
-	const categories = data.genres;
-	console.log(categories);
-
-	// Limpiar categories-list antes de agregarlas
-	categoriesList.innerHTML = "";
-
+function createCategories(container, categories) {
 	categories.forEach(category => {
 		const categoryLi = document.createElement('li');
 		categoryLi.classList.add('category');
@@ -62,14 +59,29 @@ async function getCategories() {
 			location.hash = `#category=${category.id}-${category.name.toLowerCase()}`;
 		});
 
-		categoriesList.appendChild(categoryLi);
+		container.appendChild(categoryLi);
 	});
+}
+
+async function getCategories() {
+	const { data } = await axiosRequest('genre/movie/list');
+	const categories = data.genres;
+	console.log('main.js categories', categories);
+
+	// Limpiar categories-list antes de agregarlas
+	categoriesList.innerHTML = "";
+
+	createCategories(categoriesList, categories);
 }
 
 function createGridMovies(movies) {
 	movies.forEach(movie => {
-		const movieDiv = document.createElement('div');
-		movieDiv.classList.add('grid-movie');
+		const gridMovieDiv = document.createElement('div');
+		gridMovieDiv.classList.add('grid-movie');
+
+		gridMovieDiv.addEventListener('click', () => {
+			location.hash = `${MOVIE_HASH}=${movie.id}`;
+		});
 
 		const movieImg = document.createElement('img');
 		movieImg.setAttribute('alt', movie.title);
@@ -77,8 +89,8 @@ function createGridMovies(movies) {
 
 		// TODO JS: Add btn watch later (category view)
 
-		movieDiv.appendChild(movieImg);
-		genericGridMoviesList.appendChild(movieDiv);
+		gridMovieDiv.appendChild(movieImg);
+		genericGridMoviesList.appendChild(gridMovieDiv);
 	});
 }
 
@@ -121,4 +133,19 @@ async function getMoviesBySearchQuery(searchQuery) {
 	genericSubtitle.classList.add('subtitle');
 
 	createGridMovies(movies);
+}
+
+async function getMovieById(movieId) {
+	// objetoQueRecibimos: renombreObjeto
+	const { data: movie } = await axiosRequest(`movie/${movieId}`);
+
+	movieInfoPoster.setAttribute('alt', movie.name);
+	movieInfoPoster.setAttribute('src', `${URL_IMG}${movie.poster_path}`);
+
+	movieInfoTitle.textContent = movie.title;
+	movieInfoRating.textContent = movie.vote_average.toFixed(2);
+	movieInfoDescription.textContent = movie.overview;
+
+	movieInfoCategoriesList.innerHTML = '';
+	createCategories(movieInfoCategoriesList, movie.genres);
 }

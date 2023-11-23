@@ -79,5 +79,8 @@ function loadMovieView() {
 	console.log('Movie view');
 
 	resetView(MOVIE_HASH);
+
+	const movieId = decodeURI(location.hash.split('=')[1]);
+	getMovieById(movieId);
 }
 
