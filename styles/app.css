@@ -306,9 +306,32 @@ code {
 
 .movie-title-rating {
 	display: flex;
-	justify-content: space-between;
-	align-items: center;
+	justify-content: flex-end;
+	align-items: baseline;
+	margin-bottom: var(--space-small);
 	font-family: 'Dela Gothic One', sans-serif;
+	flex-wrap: wrap;
+}
+
+#movie-info-title {
+	line-height: var(--text-large);
+	margin-right: auto;
+}
+
+.movie-rating {
+	display: flex;
+	align-items: center;
+	height: 100%;
+}
+
+.movie-rating > span {
+	font-size: var(--text-regular);
+}
+
+.movie-rating > i {
+	margin-top: 2px;
+	margin-left: var(--space-tiny);
+	margin-right: 0;
 }
 
 .movie-description {
@@ -319,6 +342,7 @@ code {
 	display: flex;
 	justify-content: flex-end;
 	margin: var(--space-small) 0;
+	flex-wrap: wrap;
 }
 
 .suggested-movie {
