@@ -10,20 +10,11 @@ const axiosRequest = axios.create({
 	},
 });
 
-
-// TODO JS: Abstraer funciones para crear movies y categories?
-
-async function getTrendingMovies() {
-	const { data } = await axiosRequest('trending/movie/week');
-	const movies = data.results;
-	console.log(movies);
-
-	// Limpiar trending-movies antes de agregarlas
-	trendingMoviesList.innerHTML = '';
-
+// Functions to generate HTML generics for movies and categories ------------------------
+function createVideotapeRowMovies(container, movies) {
 	movies.forEach(movie => {
 		const trendingMovieDiv = document.createElement('div');
-		trendingMovieDiv.classList.add('trending-movie');
+		trendingMovieDiv.classList.add('videotape-movie');
 
 		trendingMovieDiv.addEventListener('click', () => {
 			location.hash = `${MOVIE_HASH}=${movie.id}`;
@@ -37,7 +28,27 @@ async function getTrendingMovies() {
 		// TODO JS: Add svg with ranking position in trending
 
 		trendingMovieDiv.appendChild(movieImg);
-		trendingMoviesList.appendChild(trendingMovieDiv);
+		container.appendChild(trendingMovieDiv);
+	});
+}
+
+function createGridMovies(movies) {
+	movies.forEach(movie => {
+		const gridMovieDiv = document.createElement('div');
+		gridMovieDiv.classList.add('grid-movie');
+
+		gridMovieDiv.addEventListener('click', () => {
+			location.hash = `${MOVIE_HASH}=${movie.id}`;
+		});
+
+		const movieImg = document.createElement('img');
+		movieImg.setAttribute('alt', movie.title);
+		movieImg.setAttribute('src', `${URL_IMG}${movie.poster_path}`);
+
+		// TODO JS: Add btn watch later (category view)
+
+		gridMovieDiv.appendChild(movieImg);
+		genericGridMoviesList.appendChild(gridMovieDiv);
 	});
 }
 
@@ -63,6 +74,18 @@ function createCategories(container, categories) {
 	});
 }
 
+// All functions to request movies and categories ---------------------------------------
+async function getTrendingMovies() {
+	const { data } = await axiosRequest('trending/movie/week');
+	const movies = data.results;
+	console.log(movies);
+
+	// Limpiar trending-movies antes de agregarlas
+	trendingMoviesList.innerHTML = '';
+
+	createVideotapeRowMovies(trendingMoviesList, movies);
+}
+
 async function getCategories() {
 	const { data } = await axiosRequest('genre/movie/list');
 	const categories = data.genres;
@@ -72,26 +95,6 @@ async function getCategories() {
 	categoriesList.innerHTML = "";
 
 	createCategories(categoriesList, categories);
-}
-
-function createGridMovies(movies) {
-	movies.forEach(movie => {
-		const gridMovieDiv = document.createElement('div');
-		gridMovieDiv.classList.add('grid-movie');
-
-		gridMovieDiv.addEventListener('click', () => {
-			location.hash = `${MOVIE_HASH}=${movie.id}`;
-		});
-
-		const movieImg = document.createElement('img');
-		movieImg.setAttribute('alt', movie.title);
-		movieImg.setAttribute('src', `${URL_IMG}${movie.poster_path}`);
-
-		// TODO JS: Add btn watch later (category view)
-
-		gridMovieDiv.appendChild(movieImg);
-		genericGridMoviesList.appendChild(gridMovieDiv);
-	});
 }
 
 async function getMoviesByCategory(category) {
@@ -148,4 +151,15 @@ async function getMovieById(movieId) {
 
 	movieInfoCategoriesList.innerHTML = '';
 	createCategories(movieInfoCategoriesList, movie.genres);
+
+	getSuggestedMoviesById(movieId);
+}
+
+async function getSuggestedMoviesById(movieId) {
+	const { data } = await axiosRequest(`movie/${movieId}/similar`);
+
+	const suggestedMovies = data.results;
+
+	suggestedMoviesList.innerHTML = '';
+	createVideotapeRowMovies(suggestedMoviesList, suggestedMovies);
 }

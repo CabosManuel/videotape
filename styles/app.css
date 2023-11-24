@@ -212,7 +212,7 @@ code {
 }
 
 /* TODO CSS: (1/2) Adjust height, fit and bottom rounded movie image */
-.trending-movie, .suggested-movie {
+.videotape-movie {
 	position: relative;
 	display: flex;
 	min-width: 168px;
@@ -374,7 +374,7 @@ code {
 		border-radius: var(--radius-large);
 	}
 	
-	.trending-movie {
+	.videotape-movie {
 		min-width: 132px;
 	}
 	
