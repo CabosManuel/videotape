@@ -357,13 +357,12 @@ code {
 }
 
 /* TODO CSS: Remove temporal background colors */
-/* FIX CSS: Margins an with body */
 /* ********* Tablet mini ********* */
 @media (min-width: 481px) and (max-width: 767px) {
 
 	html {
-		background-color: red;
-		/* background-color: var(--dark-blue-light); */
+		/* background-color: red; */
+		background-color: var(--dark-blue-light);
 	}
 
 	body {
@@ -399,8 +398,8 @@ code {
 @media (min-width: 768px) and (max-width: 1024px) {
 
 	html {
-		background-color: orange;
-		/* background-color: var(--dark-blue-light); */
+		/* background-color: orange; */
+		background-color: var(--dark-blue-light);
 	}
 
 	body {
@@ -446,8 +445,8 @@ code {
 @media (min-width: 1025px) and (max-width: 1280px) {
 
 	html {
-		background-color: yellow;
-		/* background-color: var(--dark-blue-light); */
+		/* background-color: yellow; */
+		background-color: var(--dark-blue-light);
 	}
 	
 	body {
@@ -512,8 +511,8 @@ code {
 @media (min-width: 1281px) {
 
 	html {
-		background-color: green;
-		/* background-color: var(--dark-blue-light); */
+		/* background-color: green; */
+		background-color: var(--dark-blue-light);
 	}
 	
 	body {
