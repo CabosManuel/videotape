@@ -54,7 +54,12 @@ body {
 	padding: var(--space-medium) var(--space-large);
 	font-family: 'Rubik', sans-serif;
 	font-size: var(--text-small);
-	background-color: var(--dark-light-blue);
+	background-image:
+		linear-gradient(
+			to bottom,
+			var(--dark-blue),
+			var(--dark-light-blue) 40%
+		);
 	color: var(--white);
 }
 
@@ -359,7 +364,6 @@ code {
 	margin: var(--space-small) 0;
 }
 
-/* TODO CSS: Remove temporal background colors */
 /* ********* Tablet mini ********* */
 @media (min-width: 481px) and (max-width: 767px) {
 
