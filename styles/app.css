@@ -65,10 +65,10 @@ h1 {
 	color: var(--green);
 }
 
-/* TODO CSS: Add gap in subtitles */
 h2 {
 	font-size: var(--text-medium);
 	font-weight: 400;
+	letter-spacing: var(--space-medium);
 }
 
 form {
@@ -131,8 +131,10 @@ code {
 }
 
 .slogan {
-	font-size: var(--text-tiny);
 	margin-bottom: var(--space-medium);
+	font-weight: 300;
+	font-size: var(--text-tiny);
+	letter-spacing: var(--space-small);
 	user-select: none;
 }
 
@@ -317,6 +319,7 @@ code {
 #movie-info-title {
 	line-height: var(--text-large);
 	margin-right: auto;
+	letter-spacing: 0;
 }
 
 .movie-rating {
