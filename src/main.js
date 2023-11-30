@@ -13,42 +13,50 @@ const axiosRequest = axios.create({
 // Functions to generate HTML generics for movies and categories ------------------------
 function createVideotapeRowMovies(container, movies) {
 	movies.forEach(movie => {
-		const trendingMovieDiv = document.createElement('div');
-		trendingMovieDiv.classList.add('videotape-movie');
+		if (validateMovieHasContent(movie)) {
+			const trendingMovieDiv = document.createElement('div');
+			trendingMovieDiv.classList.add('videotape-movie');
 
-		trendingMovieDiv.addEventListener('click', () => {
-			location.hash = `${MOVIE_HASH}=${movie.id}`;
-		});
+			trendingMovieDiv.addEventListener('click', () => {
+				location.hash = `${MOVIE_HASH}=${movie.id}`;
+			});
 
-		const movieImg = document.createElement('img');
-		movieImg.setAttribute('alt', movie.title);
-		movieImg.setAttribute('src', `${URL_IMG}${movie.poster_path}`);
+			const movieImg = document.createElement('img');
+			movieImg.setAttribute('alt', movie.title);
+			movieImg.setAttribute('src', `${URL_IMG}${movie.poster_path}`);
 
-		// TODO JS: Add btn watch later
-		// TODO JS: Add svg with ranking position in trending
+			// TODO JS: Add btn watch later
+			// TODO JS: Add svg with ranking position in trending
 
-		trendingMovieDiv.appendChild(movieImg);
-		container.appendChild(trendingMovieDiv);
+			trendingMovieDiv.appendChild(movieImg);
+			container.appendChild(trendingMovieDiv);
+		}
 	});
 }
 
 function createGridMovies(movies) {
 	movies.forEach(movie => {
-		const gridMovieDiv = document.createElement('div');
-		gridMovieDiv.classList.add('grid-movie');
+		if (validateMovieHasContent(movie)) {
+			const gridMovieDiv = document.createElement('div');
+			gridMovieDiv.classList.add('grid-movie');
 
-		gridMovieDiv.addEventListener('click', () => {
-			location.hash = `${MOVIE_HASH}=${movie.id}`;
-		});
+			gridMovieDiv.addEventListener('click', () => {
+				location.hash = `${MOVIE_HASH}=${movie.id}`;
+			});
 
-		const movieImg = document.createElement('img');
-		movieImg.setAttribute('alt', movie.title);
-		movieImg.setAttribute('src', `${URL_IMG}${movie.poster_path}`);
+			const movieImg = document.createElement('img');
+			movieImg.setAttribute('alt', movie.title);
 
-		// TODO JS: Add btn watch later (category view)
+			const moviePoster =
+				(movie.poster_path == null) ? '../img/movie-poster-not-found.png' :
+				`${URL_IMG}${movie.poster_path}`
+			movieImg.setAttribute('src', moviePoster);
 
-		gridMovieDiv.appendChild(movieImg);
-		genericGridMoviesList.appendChild(gridMovieDiv);
+			// TODO JS: Add btn watch later (category view)
+
+			gridMovieDiv.appendChild(movieImg);
+			genericGridMoviesList.appendChild(gridMovieDiv);
+		}
 	});
 }
 
@@ -98,7 +106,6 @@ async function getCategories() {
 }
 
 async function getMoviesByCategory(category) {
-	// FIX JS: Validate null movies or empty posters
 	const { data } = await axiosRequest('discover/movie', {
 		params: { with_genres: category.id }
 	});
@@ -127,6 +134,7 @@ async function getMoviesBySearchQuery(searchQuery) {
 	});
 
 	const movies = data.results;
+	console.log('main.js getMoviesBySearchQuery()', movies);
 
 	// Limpiar grid-movies
 	genericGridMoviesList.innerHTML = '';

@@ -96,3 +96,14 @@ function getFaIconByCategoryById(categoryId) {
 
 	return faIcon;
 }
+
+function validateMovieHasContent(movie) {
+	let movieHaveContent = (
+		movie.overview === '' ||
+		movie.vote_count === 0 ||
+		movie.vote_average === 0 )
+		? false
+		: true;
+
+	return movieHaveContent;
+}
